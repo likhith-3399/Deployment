@@ -51,11 +51,6 @@
       "Type": "String",
       "Default": "subnet-fa35038d"
     },
-    "AppELBSecurityGroup": {
-      "Description": "ID of SecurityGroup",
-      "Type": "String",
-      "Default": "sg-0932896e,sg-77696b0f"
-    },
     "AppELBSubnets": {
       "Description": "Subnets that will be used for the load balancer and instances. These should be in separate Availability Zones",
       "Type": "String",
@@ -125,11 +120,6 @@
     "Subnets": {
       "Description": "List of subnets to deploy instances into",
       "Type": "String"
-    },
-    "UUID": {
-      "Description": "Unique universal identifier used to identify all nodes in this stack",
-      "Type": "String",
-      "Default": ""
     },
     "Uptime": {
       "Description": "Uptime of the ec2 instance",
@@ -202,7 +192,6 @@
           "SlaveMaxSize": {"Ref": "SlaveMaxSize"},
           "SlaveSubnets": {"Ref": "Subnets"},
           "LoadBalancerNames": { "Fn::GetAtt": [ "IdealELBStack", "Outputs.AppELBName" ] },
-          "UUID": { "Ref": "UUID" },
           "Uptime": { "Ref": "Uptime" },
           "Environment": { "Ref": "Environment" }
         }

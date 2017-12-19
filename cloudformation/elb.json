@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "COAF IDEAL ELB",
+  "Description": "APP ELB",
   "Parameters": {
     "ApplicationName": {
       "Description": "Application name.",
@@ -96,11 +96,6 @@
     "OwnerContact": {
       "Description": "Contact information of the user launching the stack.",
       "Type": "String"
-    },
-    "Uptime": {
-      "Description": "Uptime of the ec2 instance.",
-      "Type": "String",
-      "Default": "excluded"
     },
     "TargetDNSName": {
       "Description": "TargetDNSName",
@@ -346,11 +341,6 @@
       "ApplicationName": {
         "Value": {
           "Ref": "ApplicationName"
-        }
-      },
-      "ValueStream": {
-        "Value": {
-          "Ref": "ValueStream"
         }
       },
       "Environment": {

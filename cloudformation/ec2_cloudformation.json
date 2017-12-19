@@ -48,6 +48,11 @@
       "Type": "String",
       "Default": "Z35SXDOTRQ7X7K"
     },
+    "IamInstanceProfile": {
+      "Description": "Instance profile",
+      "Type": "String",
+      "Default": "Full_Access_Role_EC2_S3_Route53"
+    },
     "Index": {
       "Description": "Type of the stack Blue/green",
       "Type": "String",
@@ -99,6 +104,7 @@
           }
         ],
         "KeyName": "Acc_846095599110",
+        "IamInstanceProfile": { "Ref": "IamInstanceProfile" },
         "UserData": {
           "Fn::Base64": {
             "Fn::Join": [
