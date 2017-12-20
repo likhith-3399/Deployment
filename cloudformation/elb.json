@@ -228,13 +228,9 @@
       }
     },
     "Outputs": {
-    "AppELBURL": {
-      "Description": "DNS Name of App ELB",
-      "Value" : { "Fn::GetAtt": [ "AppELB", "DNSName" ]}
-    },
-    "AppELBName": {
-      "Value": { "Ref": "AppELB" }
+      "AppELBName": {
+        "Value": { "Ref": "AppELB" }
+      }
     }
-  }
   }
 }
