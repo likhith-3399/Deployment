@@ -30,6 +30,7 @@
       "Default": "Voting Arena"
     },
     "OwnerContact": {
+      "Description": "Owner",
       "Type": "String",
       "Default": "likhith.matta@capitalone.com"
     },
@@ -43,16 +44,6 @@
       "Type": "String",
       "Default": "Dev"
     },
-    "HostedZoneId": {
-      "Description": "Hosted Zone Id to which this instance belongs.",
-      "Type": "String",
-      "Default": "Z35SXDOTRQ7X7K"
-    },
-    "IamInstanceProfile": {
-      "Description": "Instance profile",
-      "Type": "String",
-      "Default": "Full_Access_Role_EC2_S3_Route53"
-    },
     "Index": {
       "Description": "Type of the stack Blue/green",
       "Type": "String",
@@ -62,15 +53,6 @@
       "Description": "Weight to be assigned to the stack",
       "Type": "String",
       "Default": "0"
-    },
-    "TargetDNSName": {
-      "Description": "Common Name to be used per Environment",
-      "Type": "String"
-    },
-    "HostedZoneName": {
-      "Description": "DNS to be used for hosting(could be different for internal and external applications)",
-      "Type": "String",
-      "Default": "aws-coaf-dqa.cb4good.com."
     }
   },
 
@@ -104,7 +86,6 @@
           }
         ],
         "KeyName": "Acc_846095599110",
-        "IamInstanceProfile": { "Ref": "IamInstanceProfile" },
         "UserData": {
           "Fn::Base64": {
             "Fn::Join": [
