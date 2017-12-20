@@ -154,87 +154,64 @@
     "AppELB": {
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties": {
-        "Scheme": "internal",
-        "CrossZone": "true",
-        "Subnets": {
-          "Ref": "AppELBSubnets"
+        "HealthCheck": {
+          "HealthyThreshold": "2",
+          "Interval": "5",
+          "Target": "HTTP:8090/voting/ping",
+          "Timeout": "2",
+          "UnhealthyThreshold": "2"
         },
         "Listeners": [
           {
-            "LoadBalancerPort": {
-              "Ref": "elbHttpPort"
-            },
-            "InstancePort": {
-              "Ref": "elbHttpInstancePort"
-            },
-            "Protocol": {
-              "Ref": "elbHttpListnerProtocol"
-            },
-            "InstanceProtocol": {
-              "Ref": "elbHttpListnerProtocol"
-            }
+            "InstancePort": "8080",
+            "InstanceProtocol": "HTTP",
+            "LoadBalancerPort": "80",
+            "Protocol": "HTTP"
+          },
+          {
+            "InstancePort": "8080",
+            "InstanceProtocol": "HTTP",
+            "LoadBalancerPort": "80",
+            "Protocol": "HTTP"
           }
         ],
-        "HealthCheck": {
-          "Target": {
-            "Ref": "AppELBTarget"
-          },
-          "HealthyThreshold": {
-            "Ref": "AppELBHealthyThreshold"
-          },
-          "UnhealthyThreshold": {
-            "Ref": "AppELBUnhealthyThreshold"
-          },
-          "Interval": {
-            "Ref": "AppELBIntervalThreshold"
-          },
-          "Timeout": {
-            "Ref": "AppELBTimeoutThreshold"
-          }
-        },
+        "Scheme": "internal",
+        "Subnets": {"Ref": "Subnets"},
+        "CrossZone": true,
         "Tags": [
           {
             "Key": "Name",
             "Value": {
               "Fn::Join": [
-                "",
+                "-",
                 [
-                  {
-                    "Ref": "ApplicationName"
-                  },
-                  " App ELB"
+                  {"Ref": "ApplicationName"},
+                  {"Ref": "ELBName"},
+                  {"Ref": "Env"}
                 ]
               ]
             }
           },
           {
+            "Key": "Environment",
+            "Value": {"Ref": "Env"}
+          },
+          {
             "Key": "OwnerContact",
-            "Value": {
-              "Ref": "OwnerContact"
-            }
+            "Value": {"Ref": "OwnerContact"}
           },
           {
             "Key": "ApplicationName",
-            "Value": {
-              "Ref": "ApplicationName"
-            }
+            "Value": {"Ref": "ApplicationName"}
           },
           {
             "Key": "Uptime",
-            "Value": {
-              "Ref": "Uptime"
-            }
-          },
-          {
-            "Key": "Environment",
-            "Value": {
-              "Ref": "Environment"
-            }
+            "Value": {"Ref": "Uptime"}
           }
         ]
       }
     },
-    "idealDNS": {
+    "AppDNS": {
       "Type": "AWS::Route53::RecordSetGroup",
       "DependsOn": "AppELB",
       "Properties": {
