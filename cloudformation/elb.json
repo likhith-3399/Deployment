@@ -121,7 +121,6 @@
                 "-",
                 [
                   {"Ref": "ApplicationName"},
-                  {"Ref": "ELBName"},
                   {"Ref": "Env"}
                 ]
               ]
