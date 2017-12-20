@@ -229,13 +229,10 @@
     },
     "Outputs": {
     "ELBURL": {
-      "Value": { "Fn::Join": [ "", [ { "Fn::GetAtt": [ "AppELB", "DNSName" ] }, ":", { "Ref": "elbHttpPort" } ] ] }
+      "Value" : { "Fn::GetAtt": [ "AppELB", "DNSName" ]}
     },
     "AppELBName": {
       "Value": { "Ref": "AppELB" }
-    },
-    "CMDBEnvironment": {
-      "Value": { "Ref": "CMDBEnvironment" }
     },
     "SNSTopicARN": {
       "Value": { "Ref": "SNSTopicARN" }
