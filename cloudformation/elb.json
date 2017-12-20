@@ -218,49 +218,7 @@
           }
         ]
       }
-    },
-    "Outputs": {
-      "AppELBName": {
-        "Value": {
-          "Ref": "AppELB"
-        }
-      },
-      "OwnerContact": {
-        "Value": {
-          "Ref": "OwnerContact"
-        }
-      },
-      "ApplicationName": {
-        "Value": {
-          "Ref": "ApplicationName"
-        }
-      },
-      "Environment": {
-        "Value": {
-          "Ref": "Environment"
-        }
-      },
-      "Uptime": {
-        "Value": {
-          "Ref": "Uptime"
-        }
-      },
-      "TargetHostName": {
-        "Description": "Target HostName",
-        "Value": {
-          "Fn::Join": [
-            ".",
-            [
-              {
-                "Ref": "TargetDNSName"
-              },
-              {
-                "Ref": "HostedZoneName"
-              }
-            ]
-          ]
-        }
-      }
     }
+  
   }
 }
