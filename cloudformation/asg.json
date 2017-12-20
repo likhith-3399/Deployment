@@ -3,26 +3,6 @@
   "Description": "APP ASG",
 
   "Parameters": {
-    "EBSDeviceName": {
-      "Description": "The name of the EBS device within Amazon EC2",
-      "Type": "String"
-    },
-    "EBSVolumeSize": {
-      "Description": "EBS Volumes size in gigabytes",
-      "Type": "String"
-    },
-    "EBSVolumeType": {
-      "Description": "EBS Volume type",
-      "Type": "String"
-    },
-    "EBSDeleteOnTermination": {
-      "Description": "Determines whether to delete the volume on instance termination",
-      "Type": "String"
-    },
-    "EBSEncrypted": {
-      "Description": "Determines if the EBS should be encypted",
-      "Type": "String"
-    },
     "ImageId": {
       "Description": "Provides the unique ID of the Amazon Machine Image (AMI)",
       "Type": "AWS::EC2::Image::Id"
@@ -99,16 +79,12 @@
         },
         "BlockDeviceMappings": [
           {
-            "DeviceName": { "Ref": "EBSDeviceName" },
+            "DeviceName": "/dev/sda1",
             "Ebs": {
-              "VolumeSize": { "Ref": "EBSVolumeSize" },
-              "VolumeType": { "Ref": "EBSVolumeType" },
-              "Encrypted": { "Ref": "EBSEncrypted" },
-              "DeleteOnTermination": { "Ref": "EBSDeleteOnTermination" }
+              "VolumeSize": "10"
             }
           }
         ],
-        "SecurityGroups": { "Ref": "SlaveSecurityGroupIds" },
         "IamInstanceProfile": { "Ref": "IamInstanceProfile" },
         "UserData": {
           "Fn::Base64": {

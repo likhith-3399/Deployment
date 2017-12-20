@@ -45,6 +45,11 @@
       ],
       "ConstraintDescription": "Must be a valid ELB listener protocol."
     },
+    "SNSTopicARN": {
+      "Description": "The path the ELB will use to determine the health of its instances.",
+      "Type": "String",
+      "Default": "arn:aws:sns:us-east-1:846095599110:MY_TOPIC"
+    },
     "AppHealthCheckPath": {
       "Description": "The path the ELB will use to determine the health of its instances.",
       "Type": "String",
@@ -97,10 +102,6 @@
       "Description": "Contact information of the user launching the stack.",
       "Type": "String"
     },
-    "TargetDNSName": {
-      "Description": "TargetDNSName",
-      "Type": "String"
-    },
     "Index": {
       "Description": "Index",
       "Type": "String",
@@ -111,10 +112,20 @@
       "Type": "String",
       "Default": "0"
     },
+    "HostedZoneId": {
+      "Description": "Hosted Zone Id to which this instance belongs.",
+      "Type": "String",
+      "Default": "Z996FQL2HRTS9"
+    },
+    "TargetDNSName": {
+      "Description": "Common Name to be used per application",
+      "Type": "String",
+      "Default": "MyApplication"
+    },
     "HostedZoneName": {
       "Description": "DNS to be used for hosting(could be different for internal and external applications)",
       "Type": "String",
-      "Default": "aws-coaf-dqa.cb4good.com."
+      "Default": "gopersonalblog.com."
     }
   },
   "Conditions": {
@@ -246,7 +257,7 @@
                 ]
               ]
             },
-            "Type": "A",
+            "Type": "CNAME",
             "SetIdentifier": {
               "Fn::Join": [
                 "-",
