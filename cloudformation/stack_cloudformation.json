@@ -129,10 +129,5 @@
         }
       }
     }
-  },
-  "Outputs": {
-     "elbURL": {
-       "Value": { "Fn::GetAtt": [ "AppELBStack", "Outputs.AppELBURL" ] }
-     }
    }
 }

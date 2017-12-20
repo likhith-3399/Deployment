@@ -226,42 +226,5 @@
           }
         ]
       }
-    },
-  "Outputs": {
-    "AppELBURL": {
-      "Value": { "Fn::Join": [ "", [ { "Fn::GetAtt": [ "AppELB", "DNSName" ] }, ":", { "Ref": "elbHttpPort" } ] ] }
-    },
-    "AppELBName": {
-      "Value": { "Ref": "AppELB" }
-    },
-    "CMDBEnvironment": {
-      "Value": { "Ref": "CMDBEnvironment" }
-    },
-    "OwnerContact": {
-      "Value": { "Ref": "OwnerContact" }
-    },
-    "SNSTopicARN": {
-      "Value": { "Ref": "SNSTopicARN" }
-    },
-    "ApplicationName": {
-      "Value": { "Ref": "ApplicationName" }
-    },
-    "ValueStream": {
-      "Value": { "Ref": "ValueStream" }
-    },
-    "Environment": {
-      "Value": { "Ref": "Environment" }
-    },
-    "Uptime": {
-      "Value": { "Ref": "Uptime" }
-    },
-    "TargetHostName" : {
-      "Description" : "Target HostName",
-      "Value" : { "Fn::Join": [ ".", [
-                                  { "Ref": "TargetDNSName" },
-                                  { "Ref": "HostedZoneName" }
-                                ] ] }
     }
-  }
-  }
 }
