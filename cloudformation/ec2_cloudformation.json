@@ -67,7 +67,7 @@
     "HostedZoneName": {
       "Description": "DNS to be used for hosting(could be different for internal and external applications)",
       "Type": "String",
-      "Default": "gopersonalblog.com"
+      "Default": "gopersonalblog.com."
     }
   },
 
