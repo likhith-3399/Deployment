@@ -92,7 +92,7 @@
             "Protocol": "HTTP"
           },
           {
-            "InstancePort": "8080",
+            "InstancePort": "8081",
             "InstanceProtocol": "HTTP",
             "LoadBalancerPort": "80",
             "Protocol": "HTTP"
@@ -221,20 +221,7 @@
     },
     "Outputs": {
       "AppELBURL": {
-        "Value": {
-          "Fn::Join": [
-            "",
-            [
-              {
-                "Fn::GetAtt": [
-                  "AppELB",
-                  "DNSName"
-                ]
-              },
-              ":",
-              {
-                "Ref": "elbHttpPort"
-              }
+        "Value": { "Fn::Join": [ "", [ { "Fn::GetAtt": [ "AppELB", "DNSName" ] }, ":", { "Ref": "elbHttpPort" }
             ]
           ]
         }
