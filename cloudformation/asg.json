@@ -42,7 +42,7 @@
       "Description": "Maximum number of slaves to having running at any given time",
       "Type": "String"
     },
-    "SlaveSubnets": {
+    "Subnets": {
       "Description": "Subnets to launch slave nodes into",
       "Type": "CommaDelimitedList"
     },
@@ -112,7 +112,7 @@
         "LaunchConfigurationName": { "Ref": "SlaveLaunchConfig" },
         "MinSize": { "Ref": "SlaveMinSize" },
         "MaxSize": { "Ref": "SlaveMaxSize" },
-        "VPCZoneIdentifier": { "Ref": "SlaveSubnets" },
+        "VPCZoneIdentifier": { "Ref": "Subnets" },
         "LoadBalancerNames": { "Ref": "LoadBalancerNames"},
         "Tags": [
           {

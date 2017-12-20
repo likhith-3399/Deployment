@@ -7,7 +7,7 @@
       "Type": "String",
       "Default": "Voting Arena"
     },
-    "AppELBSubnets": {
+    "Subnets": {
       "Description": "These are the 2 subnets that will be used for the load balancer and instances.  These should be in separate Availability Zones",
       "Type": "CommaDelimitedList"
     },
@@ -16,7 +16,7 @@
       "Type": "String",
       "Default": "arn:aws:sns:us-east-1:846095599110:MY_TOPIC"
     },
-    "Environment": {
+    "Env": {
       "Description": "Environment to which the elb belongs.",
       "Type": "String",
       "Default": "Dev"
@@ -126,10 +126,6 @@
           {
             "Key": "ApplicationName",
             "Value": {"Ref": "ApplicationName"}
-          },
-          {
-            "Key": "Uptime",
-            "Value": {"Ref": "Uptime"}
           }
         ]
       }

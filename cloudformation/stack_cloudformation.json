@@ -46,18 +46,8 @@
       "Type": "String",
       "Default": "1"
     },
-    "SlaveSubnets": {
-      "Description": "Subnets to launch slave nodes into",
-      "Type": "String",
-      "Default": "subnet-d5b8c0b1"
-    },
-    "AppELBSubnets": {
-      "Description": "Subnets that will be used for the load balancer and instances. These should be in separate Availability Zones",
-      "Type": "String",
-      "Default": "subnet-d5b8c0b1"
-    },
     "Subnets": {
-      "Description": "List of subnets to deploy instances into",
+      "Description": "Subnets to launch slave nodes into",
       "Type": "String",
       "Default": "subnet-d5b8c0b1"
     },
@@ -109,7 +99,7 @@
       "Properties": {
         "TemplateURL": "https://s3.amazonaws.com/cloud-formation-templates-001/cloudformation/elb.json",
         "Parameters": {
-          "AppELBSubnets": { "Ref": "AppELBSubnets" },
+          "Subnets": { "Ref": "Subnets" },
           "OwnerContact": { "Ref": "OwnerContact" },
           "Uptime": { "Ref": "Uptime" },
           "Index": { "Ref": "Index"},
@@ -132,7 +122,7 @@
           "OwnerContact": {"Ref": "OwnerContact"},
           "SlaveMinSize": {"Ref": "SlaveMinSize"},
           "SlaveMaxSize": {"Ref": "SlaveMaxSize"},
-          "SlaveSubnets": {"Ref": "Subnets"},
+          "Subnets": {"Ref": "Subnets"},
           "LoadBalancerNames": { "Fn::GetAtt": [ "AppELBStack", "Outputs.AppELBName" ] },
           "Uptime": { "Ref": "Uptime" },
           "Environment": { "Ref": "Environment" }
