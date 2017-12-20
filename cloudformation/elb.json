@@ -17,6 +17,12 @@
       "AllowedValues": [ "TCP", "HTTP", "HTTPS", "SSL" ],
       "ConstraintDescription": "Must be a valid ELB health check protocol."
     },
+    "elbHttpPort": {
+      "Description": "The receiving port that the load balancer will be listening on.",
+      "Type": "String",
+      "Default": "80",
+      "ConstraintDescription": "Must be a valid port."
+    },
     "SNSTopicARN": {
       "Description": "The path the ELB will use to determine the health of its instances.",
       "Type": "String",
@@ -220,7 +226,44 @@
           }
         ]
       }
+    },
+    ,
+  "Outputs": {
+    "AppELBURL": {
+      "Value": { "Fn::Join": [ "", [ { "Fn::GetAtt": [ "AppELB", "DNSName" ] }, ":", { "Ref": "elbHttpPort" } ] ] }
+    },
+    "AppELBName": {
+      "Value": { "Ref": "AppELB" }
+    },
+    "CMDBEnvironment": {
+      "Value": { "Ref": "CMDBEnvironment" }
+    },
+    "OwnerContact": {
+      "Value": { "Ref": "OwnerContact" }
+    },
+    "SNSTopicARN": {
+      "Value": { "Ref": "SNSTopicARN" }
+    },
+    "ApplicationName": {
+      "Value": { "Ref": "ApplicationName" }
+    },
+    "ValueStream": {
+      "Value": { "Ref": "ValueStream" }
+    },
+    "Environment": {
+      "Value": { "Ref": "Environment" }
+    },
+    "Uptime": {
+      "Value": { "Ref": "Uptime" }
+    },
+    "TargetHostName" : {
+      "Description" : "Target HostName",
+      "Value" : { "Fn::Join": [ ".", [
+                                  { "Ref": "TargetDNSName" },
+                                  { "Ref": "HostedZoneName" }
+                                ] ] }
     }
-  
+  }
+ 
   }
 }
