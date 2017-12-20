@@ -147,7 +147,7 @@
                                 ] ] },
           "Weight": { "Ref": "Weight" },
           "ResourceRecords" : [
-             { "Fn::GetAtt" : [ "TestNode", "PrivateIp" ] }
+             { "Fn::GetAtt" : [ "TestNode", "PublicIp" ] }
           ]
         }
         ]
