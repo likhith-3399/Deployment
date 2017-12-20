@@ -228,7 +228,7 @@
       }
     },
     "Outputs": {
-    "AppELBURL": {
+    "ELBURL": {
       "Value": { "Fn::Join": [ "", [ { "Fn::GetAtt": [ "AppELB", "DNSName" ] }, ":", { "Ref": "elbHttpPort" } ] ] }
     },
     "AppELBName": {
@@ -237,23 +237,14 @@
     "CMDBEnvironment": {
       "Value": { "Ref": "CMDBEnvironment" }
     },
-    "OwnerContact": {
-      "Value": { "Ref": "OwnerContact" }
-    },
     "SNSTopicARN": {
       "Value": { "Ref": "SNSTopicARN" }
     },
     "ApplicationName": {
       "Value": { "Ref": "ApplicationName" }
     },
-    "ValueStream": {
-      "Value": { "Ref": "ValueStream" }
-    },
     "Environment": {
       "Value": { "Ref": "Environment" }
-    },
-    "Uptime": {
-      "Value": { "Ref": "Uptime" }
     },
     "TargetHostName" : {
       "Description" : "Target HostName",
