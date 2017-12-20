@@ -220,12 +220,6 @@
       }
     },
     "Outputs": {
-      "AppELBURL": {
-        "Value": { "Fn::Join": [ "", [ { "Fn::GetAtt": [ "AppELB", "DNSName" ] }, ":", { "Ref": "elbHttpPort" }
-            ]
-          ]
-        }
-      },
       "AppELBName": {
         "Value": {
           "Ref": "AppELB"
