@@ -113,7 +113,6 @@
         "MinSize": { "Ref": "SlaveMinSize" },
         "MaxSize": { "Ref": "SlaveMaxSize" },
         "VPCZoneIdentifier": { "Ref": "Subnets" },
-        "LoadBalancerNames": { "Ref": "LoadBalancerNames"},
         "Tags": [
           {
             "Key": "Name",
