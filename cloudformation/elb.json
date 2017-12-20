@@ -14,6 +14,7 @@
     "AppHealthCheckProtocol": {
       "Description": "Health check protocol.",
       "Type": "String",
+      "Default": "HTTP",
       "AllowedValues": [ "TCP", "HTTP", "HTTPS", "SSL" ],
       "ConstraintDescription": "Must be a valid ELB health check protocol."
     },
