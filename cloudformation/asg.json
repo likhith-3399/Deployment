@@ -53,7 +53,8 @@
     },
     "IamInstanceProfile": {
       "Description": "Instance profile",
-      "Type": "String"
+      "Type": "String",
+      "Default": "Full_Access_Role_EC2_S3_Route53"
     },
     "Uptime": {
       "Type": "String",
@@ -91,11 +92,13 @@
             "Fn::Join": [
               "",
               [
-                "#!/bin/bash -ex \n",
-                "mkdir /etc/vault-aws-ec2-auth \n",
-                "touch nonce \n",
-                "uuidgen > /etc/vault-aws-ec2-auth/nonce \n",
-                "chmod 777 /etc/vault-aws-ec2-auth/ \n"
+                "#!/bin/bash -v \n",
+                "yum install -y java \n",
+                "yum install -y wget \n",
+                "mkdir App \n",
+                "cd MyApp \n",
+                "wget https://s3.amazonaws.com/java-artifacts-001/artifacts/IntuitCodingChallenge-17.12.01-SNAPSHOT.jar \n",
+                "nohup java -jar IntuitCodingChallenge-17.12.01-SNAPSHOT.jar \n"
               ]
             ]
           }

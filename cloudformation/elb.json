@@ -11,87 +11,10 @@
       "Description": "These are the 2 subnets that will be used for the load balancer and instances.  These should be in separate Availability Zones",
       "Type": "CommaDelimitedList"
     },
-    "AppHealthCheckProtocol": {
-      "Description": "Health check protocol.",
-      "Type": "String",
-      "AllowedValues": [
-        "TCP",
-        "HTTP",
-        "HTTPS",
-        "SSL"
-      ],
-      "ConstraintDescription": "Must be a valid ELB health check protocol."
-    },
-    "elbHttpPort": {
-      "Description": "The receiving port that the load balancer will be listening on.",
-      "Type": "String",
-      "Default": "",
-      "ConstraintDescription": "Must be a valid port."
-    },
-    "elbHttpInstancePort": {
-      "Description": "The destination port that the load balancer will send the traffic on.",
-      "Type": "String",
-      "Default": "",
-      "ConstraintDescription": "Must be a valid port."
-    },
-    "elbHttpListnerProtocol": {
-      "Description": "ELB Listener protocol for the App stack.",
-      "Type": "String",
-      "AllowedValues": [
-        "TCP",
-        "HTTP",
-        "HTTPS",
-        "SSL"
-      ],
-      "ConstraintDescription": "Must be a valid ELB listener protocol."
-    },
     "SNSTopicARN": {
       "Description": "The path the ELB will use to determine the health of its instances.",
       "Type": "String",
       "Default": "arn:aws:sns:us-east-1:846095599110:MY_TOPIC"
-    },
-    "AppHealthCheckPath": {
-      "Description": "The path the ELB will use to determine the health of its instances.",
-      "Type": "String",
-      "ConstraintDescription": "Path must exist."
-    },
-    "AppHealthCheckPort": {
-      "Description": "The port that the ELB will use to determine the health of its instances.",
-      "Type": "String",
-      "ConstraintDescription": "Must be a valid port."
-    },
-    "AppELBUnhealthyThreshold": {
-      "Description": "Number of consecutive health check failures before declaring an EC2 instance unhealthy.",
-      "Type": "Number",
-      "MinValue": "2",
-      "MaxValue": "10",
-      "ConstraintDescription": "Must be a number from 2 to 10."
-    },
-    "AppELBHealthyThreshold": {
-      "Description": "Number of consecutive health check successes before declaring an EC2 instance healthy.",
-      "Type": "Number",
-      "MinValue": "2",
-      "MaxValue": "10",
-      "ConstraintDescription": "Must be a number from 2 to 10."
-    },
-    "AppELBIntervalThreshold": {
-      "Description": "Amount of time between health checks (5 sec - 600 sec).  For development we're using 5.",
-      "Type": "Number",
-      "MinValue": "5",
-      "MaxValue": "600",
-      "ConstraintDescription": "Must be a number from 5 - 600"
-    },
-    "AppELBTimeoutThreshold": {
-      "Description": "Time to wait when receiving a response from the health check (2 sec - 60 sec).",
-      "Type": "Number",
-      "MinValue": "2",
-      "MaxValue": "60",
-      "ConstraintDescription": "Must be a number from 2 to 60."
-    },
-    "AppELBTarget": {
-      "Description": "URL to ping to check if an instance is Healthy",
-      "Type": "String",
-      "Default": "HTTP:8080/voting/ping"
     },
     "Environment": {
       "Description": "Environment to which the elb belongs.",
