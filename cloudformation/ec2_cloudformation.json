@@ -53,6 +53,21 @@
       "Description": "Weight to be assigned to the stack",
       "Type": "String",
       "Default": "0"
+    },
+    "HostedZoneId": {
+      "Description": "Hosted Zone Id to which this instance belongs.",
+      "Type": "String",
+      "Default": "Z996FQL2HRTS9"
+    },
+    "TargetDNSName": {
+      "Description": "Common Name to be used per application",
+      "Type": "String",
+      "Default": "MyApplication"
+    },
+    "HostedZoneName": {
+      "Description": "DNS to be used for hosting(could be different for internal and external applications)",
+      "Type": "String",
+      "Default": "gopersonalblog.com"
     }
   },
 
