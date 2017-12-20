@@ -228,27 +228,12 @@
       }
     },
     "Outputs": {
-    "ELBURL": {
+    "AppELBURL": {
+      "Description": "DNS Name of App ELB",
       "Value" : { "Fn::GetAtt": [ "AppELB", "DNSName" ]}
     },
     "AppELBName": {
       "Value": { "Ref": "AppELB" }
-    },
-    "SNSTopicARN": {
-      "Value": { "Ref": "SNSTopicARN" }
-    },
-    "ApplicationName": {
-      "Value": { "Ref": "ApplicationName" }
-    },
-    "Environment": {
-      "Value": { "Ref": "Environment" }
-    },
-    "TargetHostName" : {
-      "Description" : "Target HostName",
-      "Value" : { "Fn::Join": [ ".", [
-                                  { "Ref": "TargetDNSName" },
-                                  { "Ref": "HostedZoneName" }
-                                ] ] }
     }
   }
   }
