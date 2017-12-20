@@ -126,7 +126,7 @@
           }
         }
       }
-    }
+    },
     "appDNS" : {
       "Type" : "AWS::Route53::RecordSetGroup",
       "DependsOn": "TestNode",
