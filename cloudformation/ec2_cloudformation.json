@@ -139,7 +139,7 @@
                                   { "Ref": "TargetDNSName" },
                                   { "Ref": "HostedZoneName" }
                                 ] ] },
-          "Type" : "A",
+          "Type" : "CNAME",
           "TTL" : "300",
           "SetIdentifier" : { "Fn::Join": [ "-", [
                                    { "Ref": "TargetDNSName" },
