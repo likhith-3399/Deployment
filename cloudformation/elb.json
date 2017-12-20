@@ -11,6 +11,12 @@
       "Description": "These are the 2 subnets that will be used for the load balancer and instances.  These should be in separate Availability Zones",
       "Type": "CommaDelimitedList"
     },
+    "AppHealthCheckProtocol": {
+      "Description": "Health check protocol.",
+      "Type": "String",
+      "AllowedValues": [ "TCP", "HTTP", "HTTPS", "SSL" ],
+      "ConstraintDescription": "Must be a valid ELB health check protocol."
+    },
     "SNSTopicARN": {
       "Description": "The path the ELB will use to determine the health of its instances.",
       "Type": "String",
