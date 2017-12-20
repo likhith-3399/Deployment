@@ -63,6 +63,14 @@
         "ImageId": { "Ref": "ImageId" },
         "InstanceType": { "Ref": "InstanceType" },
         "SubnetId": { "Ref": "SubnetId" },
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/sda1",
+            "Ebs": {
+              "VolumeSize": "10"
+            }
+          }
+        ],
         "Tags": [
           {
             "Key": "Name",
@@ -104,5 +112,31 @@
         }
       }
     }
+    "appDNS" : {
+      "Type" : "AWS::Route53::RecordSetGroup",
+      "DependsOn": "TestNode",
+      "Properties" : {
+        "HostedZoneName" : { "Ref": "HostedZoneName" },
+        "Comment" : "Zone apex alias targeted to App ELB LoadBalancers.",
+        "RecordSets" : [
+        {
+          "Name" : { "Fn::Join": [ ".", [
+                                  { "Ref": "TargetDNSName" },
+                                  { "Ref": "HostedZoneName" }
+                                ] ] },
+          "Type" : "A",
+          "TTL" : "300",
+          "SetIdentifier" : { "Fn::Join": [ "-", [
+                                   { "Ref": "TargetDNSName" },
+                                   { "Ref": "Index" }
+                                ] ] },
+          "Weight": { "Ref": "Weight" },
+          "ResourceRecords" : [
+             { "Fn::GetAtt" : [ "TestNode", "PrivateIp" ] }
+          ]
+        }
+        ]
+      }
+    } 
   }
 }
