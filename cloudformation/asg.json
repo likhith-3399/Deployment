@@ -69,7 +69,7 @@
   },
 
   "Resources": {
-    "SlaveLaunchConfig": {
+    "LaunchConfig": {
       "Type": "AWS::AutoScaling::LaunchConfiguration",
       "Properties": {
         "ImageId": {
@@ -106,10 +106,10 @@
       }
     },
 
-    "SlaveASG": {
+    "AppASG": {
       "Type": "AWS::AutoScaling::AutoScalingGroup",
       "Properties": {
-        "LaunchConfigurationName": { "Ref": "SlaveLaunchConfig" },
+        "LaunchConfigurationName": { "Ref": "LaunchConfig" },
         "MinSize": { "Ref": "SlaveMinSize" },
         "MaxSize": { "Ref": "SlaveMaxSize" },
         "VPCZoneIdentifier": { "Ref": "Subnets" },

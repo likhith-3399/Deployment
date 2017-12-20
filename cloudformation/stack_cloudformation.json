@@ -110,7 +110,7 @@
       }
     },
 
-    "SlaveStack": {
+    "AppASGStack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
         "TemplateURL": "https://s3.amazonaws.com/cloud-formation-templates-001/cloudformation/asg.json",
@@ -122,7 +122,6 @@
           "SlaveMinSize": {"Ref": "SlaveMinSize"},
           "SlaveMaxSize": {"Ref": "SlaveMaxSize"},
           "Subnets": {"Ref": "Subnets"},
-          "LoadBalancerNames": { "Fn::GetAtt": [ "AppELBStack", "Outputs.AppELBName" ] },
           "Uptime": { "Ref": "Uptime" },
           "Environment": { "Ref": "Environment" }
         }

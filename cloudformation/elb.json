@@ -226,11 +226,6 @@
           }
         ]
       }
-    },
-    "Outputs": {
-      "AppELBName": {
-        "Value": { "Ref": "AppELB" }
-      }
     }
   }
 }
