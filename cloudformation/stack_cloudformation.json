@@ -101,7 +101,6 @@
         "Parameters": {
           "Subnets": { "Ref": "Subnets" },
           "OwnerContact": { "Ref": "OwnerContact" },
-          "Uptime": { "Ref": "Uptime" },
           "Index": { "Ref": "Index"},
           "Environment": { "Ref": "Environment" },
           "Weight": { "Ref": "Weight" },

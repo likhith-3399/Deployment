@@ -29,7 +29,7 @@
       "Type": "String",
       "Default": "arn:aws:sns:us-east-1:846095599110:MY_TOPIC"
     },
-    "Env": {
+    "Environment": {
       "Description": "Environment to which the elb belongs.",
       "Type": "String",
       "Default": "Dev"
@@ -122,14 +122,14 @@
                 "-",
                 [
                   {"Ref": "ApplicationName"},
-                  {"Ref": "Env"}
+                  {"Ref": "Environment"}
                 ]
               ]
             }
           },
           {
             "Key": "Environment",
-            "Value": {"Ref": "Env"}
+            "Value": {"Ref": "Environment"}
           },
           {
             "Key": "OwnerContact",
