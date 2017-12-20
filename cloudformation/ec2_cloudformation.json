@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Creates single Instance of IDEAL for testing purposes",
+  "Description": "Creates single Instance of App for testing purposes",
 
   "Parameters": {
     "ImageId": {
@@ -92,7 +92,12 @@
               "",
               [
                 "#!/bin/bash -v \n",
-                "cd /tmp/ \n"
+                "yum install -y java \n",
+                "yum install -y wget \n",
+                "mkdir App \n",
+                "cd MyApp \n",
+                "wget https://s3.amazonaws.com/java-artifacts-001/artifacts/IntuitCodingChallenge-17.12.01-SNAPSHOT.jar \n",
+                "nohup java -jar IntuitCodingChallenge-17.12.01-SNAPSHOT.jar \n"
               ]
             ]
           }
