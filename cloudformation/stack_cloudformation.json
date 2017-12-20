@@ -107,7 +107,7 @@
     "AppELBStack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "elb.json",
+        "TemplateURL": "https://s3.amazonaws.com/cloud-formation-templates-001/cloudformation/elb.json",
         "Parameters": {
           "AppELBSubnets": { "Ref": "AppELBSubnets" },
           "OwnerContact": { "Ref": "OwnerContact" },
@@ -124,7 +124,7 @@
     "SlaveStack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "asg.json",
+        "TemplateURL": "https://s3.amazonaws.com/cloud-formation-templates-001/cloudformation/asg.json",
         "Parameters": {
           "ImageId": {"Ref": "ImageId"},
           "SlaveInstanceType": {"Ref": "SlaveInstanceType"},
@@ -133,7 +133,7 @@
           "SlaveMinSize": {"Ref": "SlaveMinSize"},
           "SlaveMaxSize": {"Ref": "SlaveMaxSize"},
           "SlaveSubnets": {"Ref": "Subnets"},
-          "LoadBalancerNames": { "Fn::GetAtt": [ "IdealELBStack", "Outputs.AppELBName" ] },
+          "LoadBalancerNames": { "Fn::GetAtt": [ "AppELBStack", "Outputs.AppELBName" ] },
           "Uptime": { "Ref": "Uptime" },
           "Environment": { "Ref": "Environment" }
         }
@@ -143,7 +143,7 @@
 
   "Outputs": {
     "elbURL": {
-      "Value": { "Fn::GetAtt": [ "IdealELBStack", "Outputs.AppELBURL" ] }
+      "Value": { "Fn::GetAtt": [ "AppELBStack", "Outputs.AppELBURL" ] }
     }
   }
 }
