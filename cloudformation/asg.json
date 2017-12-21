@@ -112,6 +112,7 @@
         "LaunchConfigurationName": { "Ref": "LaunchConfig" },
         "MinSize": { "Ref": "SlaveMinSize" },
         "MaxSize": { "Ref": "SlaveMaxSize" },
+        "LoadBalancerNames": { "Ref": "LoadBalancerNames"},
         "VPCZoneIdentifier": { "Ref": "Subnets" },
         "Tags": [
           {
