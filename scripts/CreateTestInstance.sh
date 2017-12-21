@@ -1,3 +1,4 @@
+#!/bin/bash
 #Parameters
 StackName=$1
 Region=$2
