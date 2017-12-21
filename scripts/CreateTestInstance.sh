@@ -1,15 +1,23 @@
-#!/bin/bash
+#Parameters
 StackName=$1
 Region=$2
 CloudFormationTemplateURL=$3
+route53index=$4
+time=`date +%Y-%m-%d-%T | sed -e 's/:/-/g'`
+route53index="${index}-${time}"
 
-sudo var/lib/jenkins/aws-cli/bin/aws s3 cp cloudformation/ec2_cloudformation.json s3://cloud-formation-templates-001/ec2_cft/ --sse
-sudo /var/lib/jenkins/aws-cli/bin/aws cloudformation create-stack --stack-name $StackName --region $Region --template-url $CloudFormationTemplateURL
+/usr/bin/aws s3 cp cloudformation/ec2_cloudformation.json s3://cloud-formation-templates-001/cloudformation/ --sse
+/usr/bin/aws --region $Region cloudformation create-stack \
+	--stack-name $StackName \
+    --template-url $CloudFormationTemplateURL \
+    --parameters \
+    	      ParameterKey=Index,ParameterValue=${route53index} \
+    	      ParameterKey=OwnerContact,ParameterValue=likhith3399@gmail.com \
 
-sudo /var/lib/jenkins/aws-cli/bin/aws cloudformation describe-stacks --stack-name $StackName > status.json
+/usr/bin/aws --region $Region cloudformation describe-stacks --stack-name $StackName > status.json
 while ! grep -q CREATE_COMPLETE status.json
 do
 	sleep 10
-    	sudo /var/lib/jenkins/aws-cli/bin/aws cloudformation describe-stacks --stack-name $StackName > status.json
+    /usr/bin/aws --region $Region cloudformation describe-stacks --stack-name $StackName > status.json
 	echo "Waiting for Cloud Formation to Complete..."
 done
