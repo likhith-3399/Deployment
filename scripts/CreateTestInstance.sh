@@ -3,8 +3,6 @@ StackName=$1
 Region=$2
 CloudFormationTemplateURL=$3
 route53index=$4
-time=`date +%Y-%m-%d-%T | sed -e 's/:/-/g'`
-route53index="${index}-${time}"
 
 /usr/bin/aws s3 cp cloudformation/ec2_cloudformation.json s3://cloud-formation-templates-001/cloudformation/ --sse
 /usr/bin/aws --region $Region cloudformation create-stack \
