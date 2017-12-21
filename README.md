@@ -25,7 +25,7 @@ IntuitCodingChallange - Deployment Automation
 - Creating a Test Stack (Creates an ec2-instance from Cloud Formation along with Route53 and deploys the application in the instance)
 	
 	1. Login to Jenkins @http://54.82.248.248:8080/ with  credentials admin/ admin
-	2. Goto job Create_Test_Stack, and enter desired Stack Name and the index color for Blue Green Deployments
+	2. Goto job **Create_Test_Stack**, and enter desired Stack Name and the index color for Blue Green Deployments
 	3. Click on Build.
 	4. If, no errors in log. Check the Cloud Formation for the new stack with the name which you provided to run.
 
@@ -33,7 +33,7 @@ IntuitCodingChallange - Deployment Automation
 	(Creates ELB, ASG, Launch Config and Route53 DNS entry and one ec2-instance where the application in the instance)
 	
 	1. Login to Jenkins @http://54.82.248.248:8080/ with  credentials admin/ admin
-	2. Goto job Create_Stack, and enter desired Stack Name and the index color for Blue Green Deployments
+	2. Goto job **Create_Stack**, and enter desired Stack Name and the index color for Blue Green Deployments
 	3. Click on Build.
 	4. If, no errors in log. Check the Cloud Formation for the new stack with the name which you provided to run.
 
