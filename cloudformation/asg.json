@@ -53,11 +53,6 @@
       "Description": "Subnets to launch slave nodes into",
       "Type": "CommaDelimitedList"
     },
-    "LoadBalancerNames": {
-      "Description": "ELB to connect the auto-scaling group to.",
-      "Type": "CommaDelimitedList",
-      "Default": ""
-    },
     "IamInstanceProfile": {
       "Description": "Instance profile",
       "Type": "String",
@@ -119,7 +114,7 @@
         "LaunchConfigurationName": { "Ref": "LaunchConfig" },
         "MinSize": { "Ref": "SlaveMinSize" },
         "MaxSize": { "Ref": "SlaveMaxSize" },
-        "ELBName": { "Ref": "ELBName"},
+        "LoadBalancerNames": { "Ref": "ELBName"},
         "VPCZoneIdentifier": { "Ref": "Subnets" },
         "Tags": [
           {

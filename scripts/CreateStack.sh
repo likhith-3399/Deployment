@@ -16,7 +16,7 @@ Region=$4
 /usr/bin/aws --region $Region cloudformation describe-stacks --stack-name $StackName > status.json
 while ! grep -q CREATE_COMPLETE status.json
 do
-	sleep 10
+	sleep 30
     /usr/bin/aws --region $Region cloudformation describe-stacks --stack-name $StackName > status.json
 	echo "Waiting for Cloud Formation to Complete..."
 done
