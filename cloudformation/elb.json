@@ -228,7 +228,7 @@
       }
     },
      "Outputs": {
-        "AppELBName": {
+        "LoadBalancerName": {
         "Value": { "Ref": "AppELB" }
       }
     }

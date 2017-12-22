@@ -133,7 +133,7 @@
           "OwnerContact": {"Ref": "OwnerContact"},
           "SlaveMinSize": {"Ref": "SlaveMinSize"},
           "SlaveMaxSize": {"Ref": "SlaveMaxSize"},
-          "LoadBalancerNames": { "Fn::GetAtt": [ "AppELBStack", "Outputs.AppELBName" ] },
+          "LoadBalancerNames": { "Fn::GetAtt": [ "AppELBStack", "Outputs.LoadBalancerName" ] },
           "Subnets": {"Ref": "Subnets"},
           "Uptime": { "Ref": "Uptime" },
           "Environment": { "Ref": "Environment" }
@@ -145,7 +145,7 @@
     }
    },
    "Outputs": {
-    "AppASGName": {
+    "ApplicationASGName": {
       "Description": "App ASG",
       "Value": {
         "Fn::GetAtt": [
@@ -154,12 +154,12 @@
         ]
       }
     },
-    "AppELBName": {
+    "ApplicationELBName": {
       "Description": "App ELB",
       "Value": {
         "Fn::GetAtt": [
           "AppELBStack",
-          "Outputs.AppELBName"
+          "Outputs.LoadBalancerName"
         ]
       }
     }
