@@ -89,6 +89,7 @@
           }
         ],
         "KeyName": "Acc_846095599110",
+        "SecurityGroups": {"Ref": "SecurityGroupIds"},
         "IamInstanceProfile": { "Ref": "IamInstanceProfile" },
         "UserData": {
           "Fn::Base64": {

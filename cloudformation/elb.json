@@ -18,6 +18,11 @@
       "AllowedValues": [ "TCP", "HTTP", "HTTPS", "SSL" ],
       "ConstraintDescription": "Must be a valid ELB health check protocol."
     },
+    "ELBSecurityGroupIds": {
+      "Description": "Subnets to launch slave nodes into",
+      "Type": "CommaDelimitedList",
+      "Default": "sg-cec722ba"
+    },
     "elbHttpPort": {
       "Description": "The receiving port that the load balancer will be listening on.",
       "Type": "String",
@@ -117,6 +122,7 @@
         ],
         "Scheme": "internal",
         "Subnets": {"Ref": "Subnets"},
+        "SecurityGroups": {"Ref": "ELBSecurityGroupIds"},
         "CrossZone": true,
         "Tags": [
           {
