@@ -88,6 +88,7 @@
             }
           }
         ],
+        "KeyName": "Acc_846095599110",
         "IamInstanceProfile": { "Ref": "IamInstanceProfile" },
         "UserData": {
           "Fn::Base64": {
