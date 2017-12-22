@@ -31,6 +31,10 @@
       "Type": "String",
       "Default": "Voting Arena"
     },
+    "ELBName": {
+      "Description":"",
+      "Type":"String"
+    },
     "OwnerContact": {
       "Type": "String"
     },
@@ -112,7 +116,7 @@
         "LaunchConfigurationName": { "Ref": "LaunchConfig" },
         "MinSize": { "Ref": "SlaveMinSize" },
         "MaxSize": { "Ref": "SlaveMaxSize" },
-        "LoadBalancerNames": { "Ref": "LoadBalancerNames"},
+        "LoadBalancerNames": { "Ref": "ELBName"},
         "VPCZoneIdentifier": { "Ref": "Subnets" },
         "Tags": [
           {
