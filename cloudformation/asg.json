@@ -24,7 +24,7 @@
     "SlaveName": {
       "Description": "Name of the ec2 Instance",
       "Type": "String",
-      "Default": "App Slave node"
+      "Default": "App Node"
     },
     "ApplicationName": {
       "Description": "Name of application the instance is a part of",
@@ -36,6 +36,9 @@
       "Type":"String"
     },
     "OwnerContact": {
+      "Type": "String"
+    },
+    "ASGName": {
       "Type": "String"
     },
     "SlaveMinSize": {
@@ -110,7 +113,7 @@
       }
     },
 
-    "AppASG": {
+    "AppAutoScalingGroup": {
       "Type": "AWS::AutoScaling::AutoScalingGroup",
       "Properties": {
         "LaunchConfigurationName": { "Ref": "LaunchConfig" },
@@ -130,6 +133,11 @@
             "PropagateAtLaunch": "true"
           },
           {
+            "Key": "ASGName",
+            "Value": { "Ref": "ASGName" },
+            "PropagateAtLaunch": "true"
+          },
+          {
             "Key": "OwnerContact",
             "Value": { "Ref": "OwnerContact" },
             "PropagateAtLaunch": "true"
@@ -146,6 +154,12 @@
           }
         ]
       }
+    }
+  },
+  "Outputs": {
+    "AppASGName": {
+      "Description": "App ASG",
+      "Value": {"Ref": "AppAutoScalingGroup"}
     }
   }
 }

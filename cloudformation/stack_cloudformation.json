@@ -86,6 +86,16 @@
       "Type": "String",
       "Default": "MyApplication"
     },
+    "ELBName": {
+      "Description": "Common ELB Name to be used per application",
+      "Type": "String",
+      "Default": "my-app-elb"
+    },
+    "ASGName": {
+      "Description": "Common ASG Name to be used per application",
+      "Type": "String",
+      "Default": "my-app-asg"
+    },
     "HostedZoneName": {
       "Description": "DNS to be used for hosting(could be different for internal and external applications)",
       "Type": "String",
@@ -102,6 +112,7 @@
           "Subnets": { "Ref": "Subnets" },
           "OwnerContact": { "Ref": "OwnerContact" },
           "Index": { "Ref": "Index"},
+          "ELBName": { "Ref": "ELBName"},
           "Environment": { "Ref": "Environment" },
           "Weight": { "Ref": "Weight" },
           "TargetDNSName": { "Ref": "TargetDNSName" },
@@ -117,6 +128,7 @@
         "Parameters": {
           "ImageId": {"Ref": "ImageId"},
           "SlaveInstanceType": {"Ref": "SlaveInstanceType"},
+          "ASGName": { "Ref": "ASGName"},
           "Timezone": {"Ref": "Timezone"},
           "OwnerContact": {"Ref": "OwnerContact"},
           "SlaveMinSize": {"Ref": "SlaveMinSize"},
@@ -126,7 +138,30 @@
           "Uptime": { "Ref": "Uptime" },
           "Environment": { "Ref": "Environment" }
         }
+      },
+      "DependsOn": [
+        "AppELBStack"
+      ]
+    }
+   },
+   "Outputs": {
+    "AppASGName": {
+      "Description": "App ASG",
+      "Value": {
+        "Fn::GetAtt": [
+          "AppASGStack",
+          "Outputs.AppASGName"
+        ]
+      }
+    },
+    "AppELBName": {
+      "Description": "App ELB",
+      "Value": {
+        "Fn::GetAtt": [
+          "AppELBStack",
+          "Outputs.AppELBName"
+        ]
       }
     }
-   }
+  }
 }
