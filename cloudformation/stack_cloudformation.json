@@ -133,7 +133,7 @@
           "OwnerContact": {"Ref": "OwnerContact"},
           "SlaveMinSize": {"Ref": "SlaveMinSize"},
           "SlaveMaxSize": {"Ref": "SlaveMaxSize"},
-          "LoadBalancerNames": { "Fn::GetAtt": [ "AppELBStack", "Outputs.LoadBalancerName" ] },
+          "LoadBalancerNames": { "Fn::GetAtt": [ "AppELBStack", "Outputs.AppELBName" ] },
           "Subnets": {"Ref": "Subnets"},
           "Uptime": { "Ref": "Uptime" },
           "Environment": { "Ref": "Environment" }
@@ -159,7 +159,7 @@
       "Value": {
         "Fn::GetAtt": [
           "AppELBStack",
-          "Outputs.LoadBalancerName"
+          "Outputs.AppELBName"
         ]
       }
     }
