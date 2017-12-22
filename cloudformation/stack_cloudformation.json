@@ -48,8 +48,8 @@
     },
     "Subnets": {
       "Description": "Subnets to launch slave nodes into",
-      "Type": "String",
-      "Default": "subnet-d5b8c0b1"
+      "Type": "AWS::EC2::Subnet::Id",
+      "Default": "subnet-d5b8c0b1,subnet-03cd7a5e"
     },
     "Uptime": {
       "Description": "Uptime of the ec2 instance",
