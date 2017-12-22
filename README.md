@@ -8,7 +8,7 @@ IntuitCodingChallange - Deployment Automation
 - Shell Script
 - Cloud Formation Templates (JSON Format)
 - AWS CloudFormation
-- AWS Load Balancer
+- AWS Elastic Load Balancer
 - AWS Auto Scaling Groups
 - AWS Launch Configurations
 - AWS SNS
@@ -17,7 +17,6 @@ IntuitCodingChallange - Deployment Automation
 - AWS S3
 - AWS EC2
 - AWS EBS
-- AWS EC2
 
 
 ## Steps to Create a New Stack
