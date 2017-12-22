@@ -38,6 +38,10 @@
       "Description": "Contact information of the user launching the stack.",
       "Type": "String"
     },
+    "ELBName": {
+      "Description": "App Elb Name.",
+      "Type": "String"
+    },
     "Index": {
       "Description": "Index",
       "Type": "String",
@@ -227,16 +231,16 @@
           }
         ]
       }
-    },
-   "Outputs": {
-      "AppELBName": {
-         "Description": "DNS Name of App ELB",
-         "Value": { "Ref": "AppELB" }
-    },
+    }
+  },
+  "Outputs": {
       "AppELBDNSName": {
          "Description": "DNS Name of App ELB",
          "Value": { "Fn::GetAtt": [ "AppELB", "DNSName"] }
-    }
+    },
+      "AppELBName": {
+         "Description": "DNS Name of App ELB",
+         "Value": { "Ref": "AppELB" }
     }
   }
 }
