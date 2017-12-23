@@ -20,8 +20,8 @@
     },
     "ELBSecurityGroupIds": {
       "Description": "Subnets to launch slave nodes into",
-      "Type": "CommaDelimitedList",
-      "Default": "sg-cec722ba"
+      "Type": "String",
+      "Default": [ "sg-cec722ba"]
     },
     "elbHttpPort": {
       "Description": "The receiving port that the load balancer will be listening on.",
@@ -122,7 +122,7 @@
         ],
         "Scheme": "internal",
         "Subnets": {"Ref": "Subnets"},
-        "SecurityGroups": [{"Ref": "ELBSecurityGroupIds"}],
+        "SecurityGroups": {"Ref": "ELBSecurityGroupIds"},
         "CrossZone": true,
         "Tags": [
           {
