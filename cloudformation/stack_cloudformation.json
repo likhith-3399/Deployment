@@ -49,7 +49,7 @@
     "Subnets": {
       "Description": "Subnets to launch slave nodes into",
       "Type": "String",
-      "Default": ["subnet-d5b8c0b1", "subnet-03cd7a5e"]
+      "Default": "subnet-d5b8c0b1"
     },
     "AppSecurityGroupIds": {
       "Description": "Subnets to launch slave nodes into",
