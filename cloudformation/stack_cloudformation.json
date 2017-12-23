@@ -118,7 +118,7 @@
           "OwnerContact": { "Ref": "OwnerContact" },
           "Index": { "Ref": "Index"},
           "ELBName": { "Ref": "ELBName"},
-          "SecurityGroupIds": { "Ref": "AppSecurityGroupIds"},
+          "SecurityGroups": { "Ref": "AppSecurityGroupIds"},
           "Environment": { "Ref": "Environment" },
           "Weight": { "Ref": "Weight" },
           "TargetDNSName": { "Ref": "TargetDNSName" },
