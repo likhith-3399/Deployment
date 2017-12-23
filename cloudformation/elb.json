@@ -9,7 +9,7 @@
     },
     "Subnets": {
       "Description": "These are the 2 subnets that will be used for the load balancer and instances.  These should be in separate Availability Zones",
-      "Type": "CommaDelimitedList"
+      "Type": "String"
     },
     "AppHealthCheckProtocol": {
       "Description": "Health check protocol.",

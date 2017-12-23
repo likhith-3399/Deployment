@@ -15,7 +15,7 @@
     },
     "SubnetId": {
       "Description": "ID of the subnet you want to launch the instance into",
-      "Type": "CommaDelimitedList",
+      "Type": "String",
       "Default": "subnet-d5b8c0b1,subnet-03cd7a5e"
     },
     "Timezone": {
