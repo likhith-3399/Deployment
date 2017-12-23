@@ -21,7 +21,7 @@
     "ELBSecurityGroupIds": {
       "Description": "Subnets to launch slave nodes into",
       "Type": "String",
-      "Default": [ "sg-cec722ba"]
+      "Default": "sg-cec722ba"
     },
     "elbHttpPort": {
       "Description": "The receiving port that the load balancer will be listening on.",
