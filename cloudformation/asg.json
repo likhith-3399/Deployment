@@ -51,7 +51,7 @@
     },
     "Subnets": {
       "Description": "Subnets to launch slave nodes into",
-      "Type": "String"
+      "Type": "CommaDelimitedList"
     },
     "IamInstanceProfile": {
       "Description": "Instance profile",

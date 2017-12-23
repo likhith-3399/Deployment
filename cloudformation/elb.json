@@ -9,7 +9,7 @@
     },
     "Subnets": {
       "Description": "These are the 2 subnets that will be used for the load balancer and instances.  These should be in separate Availability Zones",
-      "Type": "String"
+      "Type": "CommaDelimitedList"
     },
     "AppHealthCheckProtocol": {
       "Description": "Health check protocol.",
@@ -20,8 +20,8 @@
     },
     "ELBSecurityGroupIds": {
       "Description": "Subnets to launch slave nodes into",
-      "Type": "String",
-      "Default": ["sg-cec722ba"]
+      "Type": "CommaDelimitedList",
+      "Default": "sg-cec722ba"
     },
     "elbHttpPort": {
       "Description": "The receiving port that the load balancer will be listening on.",
