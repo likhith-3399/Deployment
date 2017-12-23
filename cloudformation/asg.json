@@ -53,6 +53,10 @@
       "Description": "Subnets to launch slave nodes into",
       "Type": "CommaDelimitedList"
     },
+    "SecurityGroupIds": {
+      "Description": "Subnets to launch slave nodes into",
+      "Type": "CommaDelimitedList"
+    },
     "IamInstanceProfile": {
       "Description": "Instance profile",
       "Type": "String",
