@@ -20,7 +20,7 @@
     },
     "ELBSecurityGroupIds": {
       "Description": "Subnets to launch slave nodes into",
-      "Type": "CommaDelimitedList",
+      "Type": "String",
       "Default": "sg-cec722ba"
     },
     "elbHttpPort": {

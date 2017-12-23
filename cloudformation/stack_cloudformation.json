@@ -53,7 +53,7 @@
     },
     "AppSecurityGroupIds": {
       "Description": "Subnets to launch slave nodes into",
-      "Type": "CommaDelimitedList",
+      "Type": "String",
       "Default": "sg-ebc1249f"
     },
     "Uptime": {

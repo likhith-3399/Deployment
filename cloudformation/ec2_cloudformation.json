@@ -15,8 +15,8 @@
     },
     "SubnetId": {
       "Description": "ID of the subnet you want to launch the instance into",
-      "Type": "AWS::EC2::Subnet::Id",
-      "Default": "subnet-d5b8c0b1"
+      "Type": "CommaDelimitedList",
+      "Default": "subnet-d5b8c0b1,subnet-03cd7a5e"
     },
     "Timezone": {
       "Description": "Timezone",
