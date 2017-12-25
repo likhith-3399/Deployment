@@ -114,7 +114,7 @@
             "Protocol": "HTTP"
           }
         ],
-        "Scheme": "external",
+        "Scheme": "internet-facing",
         "Subnets": {"Ref": "Subnets"},
         "SecurityGroups": {"Ref": "ELBSecurityGroupIds"},
         "CrossZone": true,
