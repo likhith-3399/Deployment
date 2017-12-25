@@ -112,12 +112,6 @@
             "InstanceProtocol": "HTTP",
             "LoadBalancerPort": "80",
             "Protocol": "HTTP"
-          },
-          {
-            "InstancePort": "8090",
-            "InstanceProtocol": "HTTP",
-            "LoadBalancerPort": "80",
-            "Protocol": "HTTP"
           }
         ],
         "Scheme": "internal",
